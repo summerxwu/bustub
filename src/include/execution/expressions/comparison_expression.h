@@ -23,7 +23,14 @@
 namespace bustub {
 
 /** ComparisonType represents the type of comparison that we want to perform. */
-enum class ComparisonType { Equal, NotEqual, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual };
+enum class ComparisonType {
+  Equal,
+  NotEqual,
+  LessThan,
+  LessThanOrEqual,
+  GreaterThan,
+  GreaterThanOrEqual
+};
 
 /**
  * ComparisonExpression represents two expressions being compared.

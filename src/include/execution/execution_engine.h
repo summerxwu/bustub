@@ -64,7 +64,8 @@ class ExecutionEngine {
           result_set->push_back(tuple);
         }
       }
-    } catch (Exception &e) {
+    }
+    catch (Exception &e) {
       // TODO(student): handle exceptions
     }
 

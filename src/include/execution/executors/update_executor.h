@@ -56,7 +56,9 @@ class UpdateExecutor : public AbstractExecutor {
   bool Next([[maybe_unused]] Tuple *tuple, RID *rid) override;
 
   /** @return The output schema for the update */
-  const Schema *GetOutputSchema() override { return plan_->OutputSchema(); };
+  const Schema *GetOutputSchema() override {
+    return plan_->OutputSchema();
+  };
 
  private:
   /**

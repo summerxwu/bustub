@@ -512,7 +512,7 @@ TEST_F(ExecutorTest, DISABLED_SimpleAggregationTest) {
         agg_schema, scan_plan.get(), nullptr, std::vector<const AbstractExpression *>{},
         std::vector<const AbstractExpression *>{col_a, col_a, col_a, col_a},
         std::vector<AggregationType>{AggregationType::CountAggregate, AggregationType::SumAggregate,
-                                     AggregationType::MinAggregate, AggregationType::MaxAggregate});
+                                     AggregationType::MinAggregate,   AggregationType::MaxAggregate});
   }
   std::vector<Tuple> result_set{};
   GetExecutionEngine()->Execute(agg_plan.get(), &result_set, GetTxn(), GetExecutorContext());

@@ -115,7 +115,7 @@ Value TinyintType::Divide(const Value &left, const Value &right) const {
     throw Exception(ExceptionType::DIVIDE_BY_ZERO, "Division by zero on right-hand side");
   }
 
-  TINYINT_MODIFY_FUNC(DivideValue, /);  // NOLINT
+  TINYINT_MODIFY_FUNC(DivideValue, / );  // NOLINT
 
   throw Exception("type error");
 }
@@ -193,7 +193,7 @@ CmpBool TinyintType::CompareEquals(const Value &left, const Value &right) const 
     return CmpBool::CmpNull;
   }
 
-  TINYINT_COMPARE_FUNC(==);  // NOLINT
+  TINYINT_COMPARE_FUNC(== );  // NOLINT
 
   throw Exception("type error");
 }
@@ -205,7 +205,7 @@ CmpBool TinyintType::CompareNotEquals(const Value &left, const Value &right) con
     return CmpBool::CmpNull;
   }
 
-  TINYINT_COMPARE_FUNC(!=);  // NOLINT
+  TINYINT_COMPARE_FUNC(!= );  // NOLINT
 
   throw Exception("type error");
 }
@@ -217,7 +217,7 @@ CmpBool TinyintType::CompareLessThan(const Value &left, const Value &right) cons
     return CmpBool::CmpNull;
   }
 
-  TINYINT_COMPARE_FUNC(<);  // NOLINT
+  TINYINT_COMPARE_FUNC(< );  // NOLINT
 
   throw Exception("type error");
 }
@@ -229,7 +229,7 @@ CmpBool TinyintType::CompareLessThanEquals(const Value &left, const Value &right
     return CmpBool::CmpNull;
   }
 
-  TINYINT_COMPARE_FUNC(<=);  // NOLINT
+  TINYINT_COMPARE_FUNC(<= );  // NOLINT
 
   throw Exception("type error");
 }
@@ -241,7 +241,7 @@ CmpBool TinyintType::CompareGreaterThan(const Value &left, const Value &right) c
     return CmpBool::CmpNull;
   }
 
-  TINYINT_COMPARE_FUNC(>);  // NOLINT
+  TINYINT_COMPARE_FUNC(> );  // NOLINT
 
   throw Exception("type error");
 }
@@ -253,7 +253,7 @@ CmpBool TinyintType::CompareGreaterThanEquals(const Value &left, const Value &ri
     return CmpBool::CmpNull;
   }
 
-  TINYINT_COMPARE_FUNC(>=);  // NOLINT
+  TINYINT_COMPARE_FUNC(>= );  // NOLINT
 
   throw Exception("type error");
 }

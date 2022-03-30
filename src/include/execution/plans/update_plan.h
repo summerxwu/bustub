@@ -21,7 +21,10 @@
 namespace bustub {
 
 /** The UpdateType enumeration describes the supported update operations */
-enum class UpdateType { Add, Set };
+enum class UpdateType {
+  Add,
+  Set
+};
 
 /** Metadata about an Update. */
 struct UpdateInfo {

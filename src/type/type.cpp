@@ -23,10 +23,9 @@
 
 namespace bustub {
 
-Type *Type::k_types[] = {
-    new Type(TypeId::INVALID),        new BooleanType(), new TinyintType(), new SmallintType(),
-    new IntegerType(TypeId::INTEGER), new BigintType(),  new DecimalType(), new VarlenType(TypeId::VARCHAR),
-};
+Type *Type::k_types[] = {new Type(TypeId::INVALID), new BooleanType(),                new TinyintType(),
+                         new SmallintType(),        new IntegerType(TypeId::INTEGER), new BigintType(),
+                         new DecimalType(),         new VarlenType(TypeId::VARCHAR), };
 
 // Get the size of this data type in bytes
 uint64_t Type::GetTypeSize(const TypeId type_id) {

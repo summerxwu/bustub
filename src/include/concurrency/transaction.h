@@ -41,17 +41,30 @@ namespace bustub {
  *    |_________________________^
  *
  **/
-enum class TransactionState { GROWING, SHRINKING, COMMITTED, ABORTED };
+enum class TransactionState {
+  GROWING,
+  SHRINKING,
+  COMMITTED,
+  ABORTED
+};
 
 /**
  * Transaction isolation level.
  */
-enum class IsolationLevel { READ_UNCOMMITTED, REPEATABLE_READ, READ_COMMITTED };
+enum class IsolationLevel {
+  READ_UNCOMMITTED,
+  REPEATABLE_READ,
+  READ_COMMITTED
+};
 
 /**
  * Type of write operation.
  */
-enum class WType { INSERT = 0, DELETE, UPDATE };
+enum class WType {
+  INSERT = 0,
+  DELETE,
+  UPDATE
+};
 
 class TableHeap;
 class Catalog;

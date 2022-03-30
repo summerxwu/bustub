@@ -46,7 +46,9 @@ class DistinctExecutor : public AbstractExecutor {
   bool Next(Tuple *tuple, RID *rid) override;
 
   /** @return The output schema for the distinct */
-  const Schema *GetOutputSchema() override { return plan_->OutputSchema(); };
+  const Schema *GetOutputSchema() override {
+    return plan_->OutputSchema();
+  };
 
  private:
   /** The distinct plan node to be executed */

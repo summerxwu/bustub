@@ -22,7 +22,12 @@
 namespace bustub {
 
 /** AggregationType enumerates all the possible aggregation functions in our system */
-enum class AggregationType { CountAggregate, SumAggregate, MinAggregate, MaxAggregate };
+enum class AggregationType {
+  CountAggregate,
+  SumAggregate,
+  MinAggregate,
+  MaxAggregate
+};
 
 /**
  * AggregationPlanNode represents the various SQL aggregation functions.

@@ -138,10 +138,14 @@ class SimpleAggregationHashTable {
   };
 
   /** @return Iterator to the start of the hash table */
-  Iterator Begin() { return Iterator{ht_.cbegin()}; }
+  Iterator Begin() {
+    return Iterator{ht_.cbegin()};
+  }
 
   /** @return Iterator to the end of the hash table */
-  Iterator End() { return Iterator{ht_.cend()}; }
+  Iterator End() {
+    return Iterator{ht_.cend()};
+  }
 
  private:
   /** The hash table is just a map from aggregate keys to aggregate values */
@@ -179,7 +183,9 @@ class AggregationExecutor : public AbstractExecutor {
   bool Next(Tuple *tuple, RID *rid) override;
 
   /** @return The output schema for the aggregation */
-  const Schema *GetOutputSchema() override { return plan_->OutputSchema(); };
+  const Schema *GetOutputSchema() override {
+    return plan_->OutputSchema();
+  };
 
   /** Do not use or remove this function, otherwise you will get zero points. */
   const AbstractExecutor *GetChildExecutor() const;

@@ -46,7 +46,9 @@ class LimitExecutor : public AbstractExecutor {
   bool Next(Tuple *tuple, RID *rid) override;
 
   /** @return The output schema for the limit */
-  const Schema *GetOutputSchema() override { return plan_->OutputSchema(); };
+  const Schema *GetOutputSchema() override {
+    return plan_->OutputSchema();
+  };
 
  private:
   /** The limit plan node to be executed */

@@ -55,7 +55,7 @@ CmpBool VarlenType::CompareEquals(const Value &left, const Value &right) const {
     return GetCmpBool(GetLength(left) == GetLength(right));
   }
 
-  VARLEN_COMPARE_FUNC(==);  // NOLINT
+  VARLEN_COMPARE_FUNC(== );  // NOLINT
 }
 
 CmpBool VarlenType::CompareNotEquals(const Value &left, const Value &right) const {
@@ -67,7 +67,7 @@ CmpBool VarlenType::CompareNotEquals(const Value &left, const Value &right) cons
     return GetCmpBool(GetLength(left) != GetLength(right));
   }
 
-  VARLEN_COMPARE_FUNC(!=);  // NOLINT
+  VARLEN_COMPARE_FUNC(!= );  // NOLINT
 }
 
 CmpBool VarlenType::CompareLessThan(const Value &left, const Value &right) const {
@@ -79,7 +79,7 @@ CmpBool VarlenType::CompareLessThan(const Value &left, const Value &right) const
     return GetCmpBool(GetLength(left) < GetLength(right));
   }
 
-  VARLEN_COMPARE_FUNC(<);  // NOLINT
+  VARLEN_COMPARE_FUNC(< );  // NOLINT
 }
 
 CmpBool VarlenType::CompareLessThanEquals(const Value &left, const Value &right) const {
@@ -91,7 +91,7 @@ CmpBool VarlenType::CompareLessThanEquals(const Value &left, const Value &right)
     return GetCmpBool(GetLength(left) <= GetLength(right));
   }
 
-  VARLEN_COMPARE_FUNC(<=);  // NOLINT
+  VARLEN_COMPARE_FUNC(<= );  // NOLINT
 }
 
 CmpBool VarlenType::CompareGreaterThan(const Value &left, const Value &right) const {
@@ -103,7 +103,7 @@ CmpBool VarlenType::CompareGreaterThan(const Value &left, const Value &right) co
     return GetCmpBool(GetLength(left) > GetLength(right));
   }
 
-  VARLEN_COMPARE_FUNC(>);  // NOLINT
+  VARLEN_COMPARE_FUNC(> );  // NOLINT
 }
 
 CmpBool VarlenType::CompareGreaterThanEquals(const Value &left, const Value &right) const {
@@ -115,7 +115,7 @@ CmpBool VarlenType::CompareGreaterThanEquals(const Value &left, const Value &rig
     return GetCmpBool(GetLength(left) >= GetLength(right));
   }
 
-  VARLEN_COMPARE_FUNC(>=);  // NOLINT
+  VARLEN_COMPARE_FUNC(>= );  // NOLINT
 }
 
 Value VarlenType::Min(const Value &left, const Value &right) const {
@@ -197,7 +197,8 @@ Value VarlenType::CastAs(const Value &value, const TypeId type_id) const {
       int8_t tinyint = 0;
       try {
         tinyint = static_cast<int8_t>(stoi(str));
-      } catch (std::out_of_range &e) {
+      }
+      catch (std::out_of_range &e) {
         throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
       }
       if (tinyint < BUSTUB_INT8_MIN) {
@@ -210,7 +211,8 @@ Value VarlenType::CastAs(const Value &value, const TypeId type_id) const {
       int16_t smallint = 0;
       try {
         smallint = static_cast<int16_t>(stoi(str));
-      } catch (std::out_of_range &e) {
+      }
+      catch (std::out_of_range &e) {
         throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
       }
       if (smallint < BUSTUB_INT16_MIN) {
@@ -223,7 +225,8 @@ Value VarlenType::CastAs(const Value &value, const TypeId type_id) const {
       int32_t integer = 0;
       try {
         integer = stoi(str);
-      } catch (std::out_of_range &e) {
+      }
+      catch (std::out_of_range &e) {
         throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
       }
       if (integer > BUSTUB_INT32_MAX || integer < BUSTUB_INT32_MIN) {
@@ -236,7 +239,8 @@ Value VarlenType::CastAs(const Value &value, const TypeId type_id) const {
       int64_t bigint = 0;
       try {
         bigint = stoll(str);
-      } catch (std::out_of_range &e) {
+      }
+      catch (std::out_of_range &e) {
         throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
       }
       if (bigint > BUSTUB_INT64_MAX || bigint < BUSTUB_INT64_MIN) {
@@ -249,7 +253,8 @@ Value VarlenType::CastAs(const Value &value, const TypeId type_id) const {
       double res = 0;
       try {
         res = stod(str);
-      } catch (std::out_of_range &e) {
+      }
+      catch (std::out_of_range &e) {
         throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
       }
       if (res > BUSTUB_DECIMAL_MAX || res < BUSTUB_DECIMAL_MIN) {

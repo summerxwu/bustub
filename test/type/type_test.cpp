@@ -22,9 +22,8 @@ namespace bustub {
 //===--------------------------------------------------------------------===//
 // Type Tests
 //===--------------------------------------------------------------------===//
-const std::vector<TypeId> TYPE_TEST_TYPES = {
-    TypeId::BOOLEAN, TypeId::TINYINT, TypeId::SMALLINT, TypeId::INTEGER, TypeId::BIGINT, TypeId::DECIMAL,
-};
+const std::vector<TypeId> TYPE_TEST_TYPES = {TypeId::BOOLEAN, TypeId::TINYINT, TypeId::SMALLINT,
+                                             TypeId::INTEGER, TypeId::BIGINT,  TypeId::DECIMAL, };
 
 template <typename KeyType, typename ValueType>
 class BPlusTreePage {

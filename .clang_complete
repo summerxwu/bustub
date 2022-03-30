@@ -1,0 +1,9 @@
+-I/data1/home/summerxwu/bustub/build/googletest-src/docs/_layouts
+-I/data1/home/summerxwu/bustub/build/googletest-src/googlemock/test
+-I/data1/home/summerxwu/bustub/build/googletest-src/googletest/samples
+-I/data1/home/summerxwu/bustub/build/googletest-src/googletest/src
+-I/data1/home/summerxwu/bustub/build/googletest-src/googletest/test
+-I/data1/home/summerxwu/bustub/test/buffer
+-I/data1/home/summerxwu/bustub/test/execution
+-I/data1/home/summerxwu/bustub/third_party/murmur3
+-I/data1/home/summerxwu/bustub/src/include

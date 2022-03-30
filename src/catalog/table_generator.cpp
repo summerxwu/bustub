@@ -35,8 +35,8 @@ std::vector<Value> TableGenerator::GenNumericValues(ColumnInsertMeta *col_meta, 
   std::default_random_engine generator;
   // TODO(Amadou): Break up in two branches if this is too weird.
   std::conditional_t<std::is_integral_v<CppType>, std::uniform_int_distribution<CppType>,
-                     std::uniform_real_distribution<CppType>>
-      distribution(static_cast<CppType>(col_meta->min_), static_cast<CppType>(col_meta->max_));
+                     std::uniform_real_distribution<CppType>> distribution(static_cast<CppType>(col_meta->min_),
+                                                                           static_cast<CppType>(col_meta->max_));
   for (uint32_t i = 0; i < count; i++) {
     values.emplace_back(Value(col_meta->type_, distribution(generator)));
   }
@@ -95,72 +95,55 @@ void TableGenerator::GenerateTestTables() {
       {"empty_table", 0, {{"colA", TypeId::INTEGER, false, Dist::Serial, 0, 0}}},
 
       // Table 1
-      {"test_1",
-       TEST1_SIZE,
-       {{"colA", TypeId::INTEGER, false, Dist::Serial, 0, 0},
-        {"colB", TypeId::INTEGER, false, Dist::Uniform, 0, 9},
-        {"colC", TypeId::INTEGER, false, Dist::Uniform, 0, 9999},
-        {"colD", TypeId::INTEGER, false, Dist::Uniform, 0, 99999}}},
+      {"test_1", TEST1_SIZE, {{"colA", TypeId::INTEGER, false, Dist::Serial, 0, 0},
+                              {"colB", TypeId::INTEGER, false, Dist::Uniform, 0, 9},
+                              {"colC", TypeId::INTEGER, false, Dist::Uniform, 0, 9999},
+                              {"colD", TypeId::INTEGER, false, Dist::Uniform, 0, 99999}}},
 
       // Table 2
-      {"test_2",
-       TEST2_SIZE,
-       {{"col1", TypeId::SMALLINT, false, Dist::Serial, 0, 0},
-        {"col2", TypeId::INTEGER, true, Dist::Uniform, 0, 9},
-        {"col3", TypeId::BIGINT, false, Dist::Uniform, 0, 1024},
-        {"col4", TypeId::INTEGER, true, Dist::Uniform, 0, 2048}}},
+      {"test_2", TEST2_SIZE, {{"col1", TypeId::SMALLINT, false, Dist::Serial, 0, 0},
+                              {"col2", TypeId::INTEGER, true, Dist::Uniform, 0, 9},
+                              {"col3", TypeId::BIGINT, false, Dist::Uniform, 0, 1024},
+                              {"col4", TypeId::INTEGER, true, Dist::Uniform, 0, 2048}}},
 
       // Table 3
-      {"test_3",
-       TEST3_SIZE,
+      {"test_3", TEST3_SIZE,
        {{"colA", TypeId::INTEGER, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0}}},
 
       // Table 4
-      {"test_4",
-       TEST4_SIZE,
-       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0},
-        {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0},
+      {"test_4", TEST4_SIZE,
+       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0},
         {"colC", TypeId::INTEGER, true, Dist::Uniform, 0, 9}}},
 
       // Table 5
-      {"test_5",
-       0,
+      {"test_5", 0,
        {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0}}},
 
       // Table 6
-      {"test_6",
-       TEST6_SIZE,
-       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0},
-        {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0},
+      {"test_6", TEST6_SIZE,
+       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0},
         {"colC", TypeId::INTEGER, true, Dist::Uniform, 0, 9}}},
 
       // Table 7
-      {"test_7",
-       TEST7_SIZE,
-       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0},
-        {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0},
+      {"test_7", TEST7_SIZE,
+       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0},
         {"colC", TypeId::INTEGER, true, Dist::Cyclic, 0, 9}}},
 
       // Table 8
-      {"test_8",
-       TEST8_SIZE,
+      {"test_8", TEST8_SIZE,
        {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0}}},
 
       // Table 9
-      {"test_9",
-       TEST9_SIZE,
+      {"test_9", TEST9_SIZE,
        {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, true, Dist::Serial, 0, 0}}},
 
       // Empty table with two columns
-      {"empty_table2",
-       0,
+      {"empty_table2", 0,
        {{"colA", TypeId::INTEGER, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, false, Dist::Uniform, 0, 9}}},
 
       // Empty table with two columns
-      {"empty_table3",
-       0,
-       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, false, Dist::Uniform, 0, 9}}},
-  };
+      {"empty_table3", 0,
+       {{"colA", TypeId::BIGINT, false, Dist::Serial, 0, 0}, {"colB", TypeId::INTEGER, false, Dist::Uniform, 0, 9}}}, };
 
   for (auto &table_meta : insert_meta) {
     // Create Schema

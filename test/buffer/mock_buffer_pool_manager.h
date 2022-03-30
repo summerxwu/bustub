@@ -23,7 +23,10 @@ namespace bustub {
 // Add callback functions on BufferPoolManager
 class MockBufferPoolManager : public BufferPoolManager {
  public:
-  enum class CallbackType { BEFORE, AFTER };
+  enum class CallbackType {
+    BEFORE,
+    AFTER
+  };
   using bufferpool_callback_fn = void (MockBufferPoolManager::*)(enum CallbackType type, FuncType func_type);
 
   MockBufferPoolManager(size_t pool_size, DiskManager *disk_manager, LogManager *log_manager = nullptr)

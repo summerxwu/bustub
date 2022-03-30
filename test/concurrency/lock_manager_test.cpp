@@ -109,7 +109,8 @@ void TwoPLTest() {
     CheckAborted(txn);
     // Size shouldn't change here
     CheckTxnLockSize(txn, 0, 1);
-  } catch (TransactionAbortException &e) {
+  }
+  catch (TransactionAbortException &e) {
     // std::cout << e.GetInfo() << std::endl;
     CheckAborted(txn);
     // Size shouldn't change here

@@ -256,7 +256,7 @@ TEST(CatalogTest, DISABLED_CreateIndex2) {
   EXPECT_EQ(table_indexes2.size(), 1);
 
   // Subsequent attempt to create an index with the same name should fail
-  auto create_index_f = [&]() -> IndexInfo * {
+  auto create_index_f = [&]()->IndexInfo * {
     return catalog->CreateIndex<BigintKeyType, BigintValueType, BigintComparatorType>(
         txn.get(), index_name, table_name, schema, key_schema, key_attrs, BIGINT_SIZE, BigintHashFunctionType{});
   };
@@ -327,7 +327,7 @@ TEST(CatalogTest, DISABLED_QueryIndex1) {
   Schema key_schema{key_columns};
 
   // Index construction should succeed
-  auto create_index_f = [&]() -> IndexInfo * {
+  auto create_index_f = [&]()->IndexInfo * {
     return catalog->CreateIndex<BigintKeyType, BigintValueType, BigintComparatorType>(
         txn.get(), index_name, table_name, schema, key_schema, key_attrs, BIGINT_SIZE, BigintHashFunctionType{});
   };
@@ -369,7 +369,7 @@ TEST(CatalogTest, DISABLED_QueryIndex2) {
   Schema key_schema{key_columns};
 
   // Index construction should succeed
-  auto create_index_f = [&]() -> IndexInfo * {
+  auto create_index_f = [&]()->IndexInfo * {
     return catalog->CreateIndex<BigintKeyType, BigintValueType, BigintComparatorType>(
         txn.get(), index_name, table_name, schema, key_schema, key_attrs, BIGINT_SIZE, BigintHashFunctionType{});
   };

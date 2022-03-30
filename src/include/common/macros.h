@@ -22,11 +22,11 @@ namespace bustub {
 #define UNREACHABLE(message) throw std::logic_error(message)
 
 // Macros to disable copying and moving
-#define DISALLOW_COPY(cname)                             \
+#define DISALLOW_COPY(cname)                  \
   cname(const cname &) = delete;            /* NOLINT */ \
   cname &operator=(const cname &) = delete; /* NOLINT */
 
-#define DISALLOW_MOVE(cname)                        \
+#define DISALLOW_MOVE(cname)             \
   cname(cname &&) = delete;            /* NOLINT */ \
   cname &operator=(cname &&) = delete; /* NOLINT */
 

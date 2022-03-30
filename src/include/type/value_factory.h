@@ -98,9 +98,7 @@ class ValueFactory {
       case TypeId::VARCHAR:
         ret_value = GetVarcharValue(nullptr, false, nullptr);
         break;
-      default: {
-        throw Exception(ExceptionType::UNKNOWN_TYPE, "Attempting to create invalid null type");
-      }
+      default: { throw Exception(ExceptionType::UNKNOWN_TYPE, "Attempting to create invalid null type"); }
     }
     return ret_value;
   }
@@ -155,9 +153,11 @@ class ValueFactory {
           int64_t bigint = 0;
           try {
             bigint = stoll(str);
-          } catch (std::out_of_range &e) {
+          }
+          catch (std::out_of_range &e) {
             throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
-          } catch (std::invalid_argument &e) {
+          }
+          catch (std::invalid_argument &e) {
             throw Exception("Invalid input syntax for bigint: \'" + str + "\'");
           }
           if (bigint > BUSTUB_INT64_MAX || bigint < BUSTUB_INT64_MIN) {
@@ -203,9 +203,11 @@ class ValueFactory {
           int32_t integer = 0;
           try {
             integer = stoi(str);
-          } catch (std::out_of_range &e) {
+          }
+          catch (std::out_of_range &e) {
             throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
-          } catch (std::invalid_argument &e) {
+          }
+          catch (std::invalid_argument &e) {
             throw Exception("Invalid input syntax for integer: \'" + str + "\'");
           }
 
@@ -257,9 +259,11 @@ class ValueFactory {
           int16_t smallint = 0;
           try {
             smallint = static_cast<int16_t>(stoi(str));
-          } catch (std::out_of_range &e) {
+          }
+          catch (std::out_of_range &e) {
             throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
-          } catch (std::invalid_argument &e) {
+          }
+          catch (std::invalid_argument &e) {
             throw Exception("Invalid input syntax for smallint: \'" + str + "\'");
           }
           if (smallint < BUSTUB_INT16_MIN) {
@@ -315,9 +319,11 @@ class ValueFactory {
           int8_t tinyint = 0;
           try {
             tinyint = static_cast<int8_t>(stoi(str));
-          } catch (std::out_of_range &e) {
+          }
+          catch (std::out_of_range &e) {
             throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
-          } catch (std::invalid_argument &e) {
+          }
+          catch (std::invalid_argument &e) {
             throw Exception("Invalid input syntax for tinyint: \'" + str + "\'");
           }
           if (tinyint < BUSTUB_INT8_MIN) {
@@ -353,9 +359,11 @@ class ValueFactory {
           double res = 0;
           try {
             res = stod(str);
-          } catch (std::out_of_range &e) {
+          }
+          catch (std::out_of_range &e) {
             throw Exception(ExceptionType::OUT_OF_RANGE, "Numeric value out of range.");
-          } catch (std::invalid_argument &e) {
+          }
+          catch (std::invalid_argument &e) {
             throw Exception("Invalid input syntax for decimal: \'" + str + "\'");
           }
           if (res > BUSTUB_DECIMAL_MAX || res < BUSTUB_DECIMAL_MIN) {

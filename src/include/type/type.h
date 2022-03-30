@@ -21,7 +21,11 @@ namespace bustub {
 
 class Value;
 
-enum class CmpBool { CmpFalse = 0, CmpTrue = 1, CmpNull = 2 };
+enum class CmpBool {
+  CmpFalse = 0,
+  CmpTrue = 1,
+  CmpNull = 2
+};
 
 class Type {
  public:

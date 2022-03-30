@@ -49,7 +49,9 @@ class HashJoinExecutor : public AbstractExecutor {
   bool Next(Tuple *tuple, RID *rid) override;
 
   /** @return The output schema for the join */
-  const Schema *GetOutputSchema() override { return plan_->OutputSchema(); };
+  const Schema *GetOutputSchema() override {
+    return plan_->OutputSchema();
+  };
 
  private:
   /** The NestedLoopJoin plan node to be executed. */

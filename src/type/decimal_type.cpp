@@ -115,7 +115,7 @@ Value DecimalType::Divide(const Value &left, const Value &right) const {
     throw Exception(ExceptionType::DIVIDE_BY_ZERO, "Division by zero on right-hand side");
   }
 
-  DECIMAL_MODIFY_FUNC(/);  // NOLINT
+  DECIMAL_MODIFY_FUNC(/ );  // NOLINT
 
   throw Exception("type error");
 }
@@ -200,7 +200,7 @@ CmpBool DecimalType::CompareEquals(const Value &left, const Value &right) const 
     return CmpBool::CmpNull;
   }
 
-  DECIMAL_COMPARE_FUNC(==);  // NOLINT
+  DECIMAL_COMPARE_FUNC(== );  // NOLINT
 
   throw Exception("type error");
 }
@@ -212,7 +212,7 @@ CmpBool DecimalType::CompareNotEquals(const Value &left, const Value &right) con
     return CmpBool::CmpNull;
   }
 
-  DECIMAL_COMPARE_FUNC(!=);  // NOLINT
+  DECIMAL_COMPARE_FUNC(!= );  // NOLINT
 
   throw Exception("type error");
 }
@@ -224,7 +224,7 @@ CmpBool DecimalType::CompareLessThan(const Value &left, const Value &right) cons
     return CmpBool::CmpNull;
   }
 
-  DECIMAL_COMPARE_FUNC(<);  // NOLINT
+  DECIMAL_COMPARE_FUNC(< );  // NOLINT
 
   throw Exception("type error");
 }
@@ -236,7 +236,7 @@ CmpBool DecimalType::CompareLessThanEquals(const Value &left, const Value &right
     return CmpBool::CmpNull;
   }
 
-  DECIMAL_COMPARE_FUNC(<=);  // NOLINT
+  DECIMAL_COMPARE_FUNC(<= );  // NOLINT
 
   throw Exception("type error");
 }
@@ -248,7 +248,7 @@ CmpBool DecimalType::CompareGreaterThan(const Value &left, const Value &right) c
     return CmpBool::CmpNull;
   }
 
-  DECIMAL_COMPARE_FUNC(>);  // NOLINT
+  DECIMAL_COMPARE_FUNC(> );  // NOLINT
 
   throw Exception("type error");
 }
@@ -260,7 +260,7 @@ CmpBool DecimalType::CompareGreaterThanEquals(const Value &left, const Value &ri
     return CmpBool::CmpNull;
   }
 
-  DECIMAL_COMPARE_FUNC(>=);  // NOLINT
+  DECIMAL_COMPARE_FUNC(>= );  // NOLINT
 
   throw Exception("type error");
 }

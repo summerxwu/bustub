@@ -26,7 +26,7 @@ CmpBool BooleanType::CompareEquals(const Value &left, const Value &right) const 
   if (left.IsNull() || right.IsNull()) {
     return CmpBool::CmpNull;
   }
-  return BOOLEAN_COMPARE_FUNC(==);  // NOLINT
+  return BOOLEAN_COMPARE_FUNC(== );  // NOLINT
 }
 
 CmpBool BooleanType::CompareNotEquals(const Value &left, const Value &right) const {
@@ -35,7 +35,7 @@ CmpBool BooleanType::CompareNotEquals(const Value &left, const Value &right) con
   if (left.IsNull() || right.IsNull()) {
     return CmpBool::CmpNull;
   }
-  return BOOLEAN_COMPARE_FUNC(!=);  // NOLINT
+  return BOOLEAN_COMPARE_FUNC(!= );  // NOLINT
 }
 
 CmpBool BooleanType::CompareLessThan(const Value &left, const Value &right) const {
@@ -44,7 +44,7 @@ CmpBool BooleanType::CompareLessThan(const Value &left, const Value &right) cons
   if (left.IsNull() || right.IsNull()) {
     return CmpBool::CmpNull;
   }
-  return BOOLEAN_COMPARE_FUNC(<);  // NOLINT
+  return BOOLEAN_COMPARE_FUNC(< );  // NOLINT
 }
 
 CmpBool BooleanType::CompareLessThanEquals(const Value &left, const Value &right) const {
@@ -53,7 +53,7 @@ CmpBool BooleanType::CompareLessThanEquals(const Value &left, const Value &right
   if (left.IsNull() || right.IsNull()) {
     return CmpBool::CmpNull;
   }
-  return BOOLEAN_COMPARE_FUNC(<=);  // NOLINT
+  return BOOLEAN_COMPARE_FUNC(<= );  // NOLINT
 }
 
 CmpBool BooleanType::CompareGreaterThan(const Value &left, const Value &right) const {
@@ -62,7 +62,7 @@ CmpBool BooleanType::CompareGreaterThan(const Value &left, const Value &right) c
   if (left.IsNull() || right.IsNull()) {
     return CmpBool::CmpNull;
   }
-  return BOOLEAN_COMPARE_FUNC(>);  // NOLINT
+  return BOOLEAN_COMPARE_FUNC(> );  // NOLINT
 }
 
 CmpBool BooleanType::CompareGreaterThanEquals(const Value &left, const Value &right) const {
@@ -71,7 +71,7 @@ CmpBool BooleanType::CompareGreaterThanEquals(const Value &left, const Value &ri
   if (left.IsNull() || right.IsNull()) {
     return CmpBool::CmpNull;
   }
-  return BOOLEAN_COMPARE_FUNC(>=);  // NOLINT
+  return BOOLEAN_COMPARE_FUNC(>= );  // NOLINT
 }
 
 std::string BooleanType::ToString(const Value &val) const {
